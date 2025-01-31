@@ -1,0 +1,23 @@
+{
+  "name": "akwgift",
+  "version": "1.0.0",
+  "description": "\"Asap\"",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sejaljaswal/S85_Awkward_Gift_Finder.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sejaljaswal/S85_Awkward_Gift_Finder/issues"
+  },
+  "homepage": "https://github.com/sejaljaswal/S85_Awkward_Gift_Finder#readme",
+  "keywords": [],
+  "dependencies": {
+    "express": "^4.21.2"
+  }
+}
