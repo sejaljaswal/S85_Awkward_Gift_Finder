@@ -1,29 +1,41 @@
 const express = require("express");
-const dotenv = require("dotenv");
 const mongoose = require("mongoose");
-const connectDatabase = require("./db/db");
-const gymRoutes = require("./routes/routes"); // Correct path
+const cors = require("cors");
+const dotenv = require("dotenv");
+dotenv.config({ path: "./config/.env" });
 
+const giftRoutes = require("./routes/giftRoutes"); // Correct route file
 
-dotenv.config();
 const app = express();
-const PORT = process.env.PORT || 3000;
 
-app.use(express.json());
-connectDatabase();
+// Middleware
+app.use(express.json()); // Allows JSON request bodies
+app.use(cors()); // Handle CORS issues
 
-// Home Route - Show MongoDB Connection Status
+// Debugging: Check if env variables are loading
+console.log("🔍 DB_URL from .env:", process.env.DB_URL);
+
+// Default Route
 app.get("/", (req, res) => {
-    const dbStatus = mongoose.connection.readyState === 1 
-        ? "MongoDB Connected☑" 
-        : "MongoDB Not Connected✖";
-    
-    res.send(`<h2>Hello, I am Sejal. This is my project awkward Gift Finder!</h2>${dbStatus}`);
+    res.send("🎁 Welcome to the Awkward Gift Finder API! Use /api/gifts to interact.");
 });
 
 // Use Routes
-app.use("/api", gymRoutes); // Now all member routes are under "/api/members"
+app.use("/api", giftRoutes);
 
-app.listen(PORT, () => {
-    console.log(`🚀 Server is running on http://localhost:${PORT}`);
-});
+// MongoDB Connection
+if (!process.env.DB_URL) {
+    console.error("❌ MongoDB Connection Error: DB_URL is missing in .env file");
+    process.exit(1);
+}
+
+mongoose.connect(process.env.DB_URL, { useNewUrlParser: true, useUnifiedTopology: true })
+    .then(() => console.log("✅ MongoDB Connected Successfully!"))
+    .catch((error) => {
+        console.error("❌ MongoDB Connection Error:", error);
+        process.exit(1); // Exit if MongoDB fails
+    });
+
+// Start Server
+const PORT = process.env.PORT || 5001;
+app.listen(PORT, () => console.log(`🚀 Server running on http://localhost:${PORT}`));
