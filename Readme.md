@@ -1,9 +1,9 @@
-Project Title:. AwkwardGiftFinder
+# Project Title:. AwkwardGiftFinder
 
-Project Overview:
+### Project Overview:
 AwkwardGiftFinder is a fun shopping app that helps users find hilariously awkward gifts tailored to the recipient's personality. It adds humor and uniqueness to gift-giving with personalized suggestions based on a quirky personality quiz.
 
-Key Features:
+### Key Features:
 
 Personality Quiz: Gift suggestions based on quiz results.
 Gift Suggestions: Display 10+ awkward gift options with descriptions and purchase links.
@@ -22,4 +22,4 @@ RENDER LINK-https://s85-awkward-gift-finder-5.onrender.com
 
 👉 [Click here to view the deployed frontend on Cloudflare Pages](https://awkwardgiftfinderr.pages.dev/)
 
----
+
