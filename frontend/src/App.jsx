@@ -1,10 +1,17 @@
-import "./index.css";
-import ASAPCard from "./ASAPCard";
+import "./App.css";
+import GiftCard from "./components/GiftCard";
 
 function App() {
+  const dummyGift = {
+    name: "Meme Mug",
+    price: 299,
+    category: "Funny",
+    description: "A mug with iconic meme faces. Awkward laughs guaranteed."
+  };
+
   return (
-    <div className="flex justify-center items-center min-h-screen bg-gray-100">
-      <ASAPCard />
+    <div className="app-container">
+      <GiftCard gift={dummyGift} />
     </div>
   );
 }
