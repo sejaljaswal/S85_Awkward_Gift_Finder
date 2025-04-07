@@ -17,3 +17,10 @@ Why This Project:
 
 
 RENDER LINK-https://s85-awkward-gift-finder-5.onrender.com
+
+
+## 🌐 Deployed Link
+
+👉 [Click here to view the deployed frontend on Cloudflare Pages](https://awkwardgiftfinderr.pages.dev/)
+
+---
