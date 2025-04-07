@@ -1,0 +1,94 @@
+.gift-card {
+    max-width: 400px;
+    width: 90%;
+    background: white;
+    border-radius: 1.5rem;
+    box-shadow: 0 8px 20px rgba(136, 84, 208, 0.2);
+    padding: 1.5rem;
+    transition: all 0.3s ease;
+    border: 1px solid #f3e8ff;
+    margin: 1rem;
+  }
+  
+  .gift-card:hover {
+    box-shadow: 0 12px 24px rgba(136, 84, 208, 0.4);
+    transform: translateY(-4px);
+  }
+  
+  .gift-card-header {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 1rem;
+    flex-wrap: wrap;
+  }
+  
+  .gift-icon-wrapper {
+    background: #f3e8ff;
+    padding: 0.75rem;
+    border-radius: 9999px;
+    box-shadow: 0 2px 6px rgba(136, 84, 208, 0.2);
+  }
+  
+  .gift-name {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #2d2d2d;
+  }
+  
+  .gift-info {
+    font-size: 0.95rem;
+    color: #555;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  
+  .category-badge {
+    display: inline-block;
+    padding: 0.25rem 0.6rem;
+    border-radius: 9999px;
+    background: #f5f3ff;
+    color: #7c3aed;
+    font-size: 0.75rem;
+    font-weight: 500;
+  }
+  
+  .gift-price {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #16a34a;
+  }
+  
+  .gift-description {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.5rem;
+    color: #444;
+    line-height: 1.4;
+  }
+  
+  /* ✅ Responsive styles */
+  @media (max-width: 600px) {
+    .gift-card {
+      padding: 1rem;
+    }
+  
+    .gift-name {
+      font-size: 1.25rem;
+    }
+  
+    .gift-price {
+      font-size: 1rem;
+    }
+  
+    .gift-card-header {
+      flex-direction: row;
+      align-items: center;
+    }
+  
+    .gift-description {
+      font-size: 0.9rem;
+    }
+  }
+  
