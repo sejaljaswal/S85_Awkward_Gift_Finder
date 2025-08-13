@@ -2,6 +2,39 @@ const express = require("express");
 const router = express.Router();
 const { Gift } = require("../model/giftSchema");
 const { body, validationResult } = require("express-validator");
+const { generateGiftSuggestions } = require("../openai/openaiClient");
+
+// Generate gift suggestions using OpenAI
+router.post("/suggestions", async (req, res) => {
+  try {
+    const { relationshipType, personalityTraits, budget } = req.body;
+    
+    // Validation
+    if (!relationshipType || !personalityTraits) {
+      return res.status(400).json({ 
+        message: "Relationship type and personality traits are required" 
+      });
+    }
+
+    const suggestions = await generateGiftSuggestions(
+      relationshipType, 
+      personalityTraits, 
+      budget
+    );
+
+    res.json({ 
+      success: true, 
+      suggestions,
+      query: { relationshipType, personalityTraits, budget }
+    });
+  } catch (error) {
+    console.error('Gift suggestions error:', error);
+    res.status(500).json({ 
+      message: "Failed to generate gift suggestions", 
+      error: error.message 
+    });
+  }
+});
 
 // Get all gifts
 router.get("/gifts", async (req, res) => {
