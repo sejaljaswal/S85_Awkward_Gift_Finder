@@ -1,8 +1,15 @@
+
 # 🎁 AwkwardGift Finder
 
 A fun and quirky full-stack web application that helps users find hilariously awkward and personalized gift suggestions using OpenAI's API. Perfect for those moments when you want to give something memorable and slightly embarrassing!
 
-## ✨ Features
+# Project Title:. AwkwardGiftFinder
+
+### Project Overview:
+AwkwardGiftFinder is a fun shopping app that helps users find hilariously awkward gifts tailored to the recipient's personality. It adds humor and uniqueness to gift-giving with personalized suggestions based on a quirky personality quiz.
+
+### Key Features:
+
 
 - **AI-Powered Gift Suggestions**: Uses OpenAI's GPT-3.5-turbo to generate creative gift ideas
 - **Personalized Input**: Choose relationship type, personality traits, and optional budget
@@ -185,3 +192,6 @@ If you encounter any issues, please:
 ---
 
 Made with ❤️ and a dash of awkwardness! 🎭
+=======
+
+
