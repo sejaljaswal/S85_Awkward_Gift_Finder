@@ -1,0 +1,22 @@
+meta {
+  name: User
+  type: http
+  seq: 3
+}
+
+post {
+  url: http://localhost:5050/reviews
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "title": "Clean Code",
+    "author": "Robert C. Martin",
+    "review": "Great book for learning software practices.",
+    "rating": 5,
+    "reviewerId": "6819c0ff5413c82424907c23"
+  }
+  
+}

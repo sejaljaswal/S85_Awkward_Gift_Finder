@@ -16,16 +16,12 @@ import {
   Github,
   Mail
 } from 'lucide-react';
-import axios from 'axios';
 
 function App() {
   const [selectedRelationship, setSelectedRelationship] = useState('');
-  const [selectedTraits, setSelectedTraits] = useState([]);
+  const [selectedTraits, setSelectedTraits] = useState<string[]>([]);
   const [currentTestimonial, setCurrentTestimonial] = useState(0);
   const [currentGiftExample, setCurrentGiftExample] = useState(0);
-  const [suggestions, setSuggestions] = useState([]);
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState('');
 
   const relationships = [
     'Best Friend', 'Coworker', 'Family Member', 'Romantic Partner', 
@@ -83,7 +79,7 @@ function App() {
     }
   ];
 
-  const toggleTrait = (trait) => {
+  const toggleTrait = (trait: string) => {
     setSelectedTraits(prev => 
       prev.includes(trait) 
         ? prev.filter(t => t !== trait)
@@ -91,26 +87,9 @@ function App() {
     );
   };
 
-  const handleGenerate = async () => {
+  const handleGenerate = () => {
     if (selectedRelationship && selectedTraits.length > 0) {
-      setLoading(true);
-      setError('');
-      setSuggestions([]);
-      try {
-        const res = await axios.post('http://localhost:5001/api/suggestions', {
-          relationshipType: selectedRelationship,
-          personalityTraits: selectedTraits
-        });
-        if (res.data && res.data.suggestions) {
-          setSuggestions(res.data.suggestions);
-        } else {
-          setError('No suggestions received.');
-        }
-      } catch (err) {
-        setError('Failed to generate suggestions.');
-      } finally {
-        setLoading(false);
-      }
+      alert(`Generating awkward gifts for your ${selectedRelationship.toLowerCase()} with traits: ${selectedTraits.join(', ')}! 🎁`);
     }
   };
 
@@ -209,24 +188,6 @@ function App() {
                   </button>
                 </div>
               </div>
-
-              {/* Show suggestions below the form */}
-              {loading && (
-                <div className="mt-8 text-center text-purple-600 font-semibold">Generating awkward gifts...</div>
-              )}
-              {error && (
-                <div className="mt-8 text-center text-red-500 font-semibold">{error}</div>
-              )}
-              {suggestions.length > 0 && (
-                <div className="mt-8 bg-white/80 rounded-2xl p-6 shadow-xl">
-                  <h4 className="text-xl font-bold mb-4 text-purple-700">Your Awkward Gift Suggestions:</h4>
-                  <ul className="space-y-3">
-                    {suggestions.map((s, i) => (
-                      <li key={i} className="text-lg text-gray-800 flex items-center gap-2">🎁 {s}</li>
-                    ))}
-                  </ul>
-                </div>
-              )}
             </div>
 
             <div className="relative">
@@ -490,4 +451,4 @@ function App() {
   );
 }
 
-export default App;
+export default App; 
